@@ -1,7 +1,7 @@
 import express from "express";
 import http from "http";
 import { Server } from "socket.io";
-import socket from "./sockets/socket.js";
+import * as socket from "./sockets/socket.js";
 import { User } from "./user.js";
 
 const PORT = 5000;
