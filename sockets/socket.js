@@ -1,5 +1,5 @@
 import socketIO, { Socket } from "socket.io";
-import { User } from "../user.js";
+import User from "../user";
 
 export const disconnectClient = (client, io) => {
   client.on("disconnect", () => {
