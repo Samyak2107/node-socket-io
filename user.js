@@ -1,28 +1,25 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
-var User = /** @class */ (function () {
-  function User() {}
-  User.getUserList = function () {
+export class User {
+  static userList = [];
+
+  constructor() {}
+
+  static getUserList() {
     return this.userList;
-  };
-  User.addUser = function (user) {
-    var added = this.userList.find(function (currentUser) {
-      return currentUser.id == user.id;
-    });
+  }
+
+  static addUser(user) {
+    const added = this.userList.find(
+      (currentUser) => currentUser.id == user.id
+    );
     if (added) {
       return;
     }
     this.userList.push(user);
-  };
-  User.removeUser = function (id) {
+  }
+
+  static removeUser(id) {
     if (this.userList) {
-      this.userList = this.userList.filter(function (user) {
-        return user.id != id;
-      });
+      this.userList = this.userList.filter((user) => user.id != id);
     }
-  };
-  User.userList = [];
-  return User;
-})();
-exports.User = User;
+  }
+}
