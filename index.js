@@ -9,7 +9,7 @@ const app = express();
 const httpServer = new http.Server(app);
 const io = new Server(httpServer, { cors: { origin: "*" } });
 
-io.on("connection", (client: any) => {
+io.on("connection", (client) => {
   io.emit("users-online", User.getUserList());
 
   socket.disconnectClient(client, io);
