@@ -10,8 +10,8 @@ const httpServer = new http.Server(app);
 const io = new Server(httpServer, { cors: { origin: "*" } });
 
 io.on("connection", (client) => {
+  console.log("A User connected!");
   io.emit("users-online", User.getUserList());
-
   socket.disconnectClient(client, io);
   socket.addUserOnline(client, io);
   socket.removeUserOnline(client, io);
