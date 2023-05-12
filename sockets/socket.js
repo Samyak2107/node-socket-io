@@ -18,8 +18,10 @@ export const addUserOnline = (client, io) => {
 };
 
 export const sendMessageToCustomer = (client, io) => {
+  console.log("sendMessageToCustomer triggered");
   client.on("send-message", (payload) => {
     io.emit(payload);
+    console.log("Payload for message", payload);
     User.addMessage(payload);
     io.emit("message-received", User.getMessage());
   });
