@@ -23,7 +23,7 @@ export class User {
   }
 
   static addMessage(messageReceived) {
-    message = messageReceived;
+    this.message = messageReceived;
   }
 
   static removeUser(id) {
