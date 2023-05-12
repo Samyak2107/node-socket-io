@@ -1,10 +1,15 @@
 export class User {
   static userList = [];
+  static message = 0;
 
   constructor() {}
 
   static getUserList() {
     return this.userList;
+  }
+
+  static getMessage() {
+    return this.message;
   }
 
   static addUser(user) {
@@ -15,6 +20,10 @@ export class User {
       return;
     }
     this.userList.push(user);
+  }
+
+  static addMessage(messageReceived) {
+    message = messageReceived;
   }
 
   static removeUser(id) {
