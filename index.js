@@ -7,7 +7,9 @@ import { User } from "./user.js";
 const PORT = 5000;
 const app = express();
 const httpServer = new http.Server(app);
-const io = new Server(httpServer, { cors: { origin: "*" } });
+const io = new Server(httpServer, {
+  cors: { origin: "https://st.jiovcip.jiolabs.com" },
+});
 
 io.on("connection", (client) => {
   console.log("A User connected!");
