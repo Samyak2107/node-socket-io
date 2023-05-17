@@ -16,6 +16,7 @@ io.on("connection", (client) => {
   io.emit("users-online", User.getUserList());
   socket.sendMessageToCustomer(client, io);
   socket.startVcip(client, io);
+  socket.sendLivelinessCode(client, io);
   socket.disconnectClient(client, io);
   socket.addUserOnline(client, io);
   socket.removeUserOnline(client, io);

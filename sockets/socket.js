@@ -37,6 +37,16 @@ export const startVcip = (client, io) => {
   });
 };
 
+export const sendLivelinessCode = (client, io) => {
+  console.log("Liveliness code sent");
+  client.on("send-liveliness-code", (payload) => {
+    io.emit(payload);
+    console.log("Payload for liveliness code", payload);
+    User.addLivelinessCode(payload);
+    io.emit("liveliness-code-received", User.getLivelinessCode());
+  });
+};
+
 export const removeUserOnline = (client, io) => {
   client.on("exit", () => {
     User.removeUser(client.id);

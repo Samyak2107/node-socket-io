@@ -2,6 +2,7 @@ export class User {
   static userList = [];
   static message = 0;
   static vcipStartSignal = false;
+  static livelinessCode = 000000;
 
   constructor() {}
 
@@ -17,6 +18,10 @@ export class User {
     return this.vcipStartSignal;
   }
 
+  static getLivelinessCode() {
+    return this.livelinessCode;
+  }
+
   static addUser(user) {
     const added = this.userList.find(
       (currentUser) => currentUser.id == user.id
@@ -29,6 +34,10 @@ export class User {
 
   static addMessage(messageReceived) {
     this.message = messageReceived;
+  }
+
+  static addLivelinessCode(codeReceived) {
+    this.livelinessCode = codeReceived;
   }
 
   static vcipStart(signal) {
