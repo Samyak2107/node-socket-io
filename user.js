@@ -2,7 +2,7 @@ export class User {
   static userList = [];
   static message = 0;
   static vcipStartSignal = false;
-  static livelinessCode = 000000;
+  static livelinessCode = 111111;
 
   constructor() {}
 
