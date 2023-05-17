@@ -27,6 +27,16 @@ export const sendMessageToCustomer = (client, io) => {
   });
 };
 
+export const startVcip = (client, io) => {
+  console.log("startVcip triggered");
+  client.on("start-vcip", (payload) => {
+    io.emit(payload);
+    console.log("Payload for startVcip", payload);
+    User.vcipStart(payload);
+    io.emit("start-vcip-signal", User.getVcipSignal());
+  });
+};
+
 export const removeUserOnline = (client, io) => {
   client.on("exit", () => {
     User.removeUser(client.id);

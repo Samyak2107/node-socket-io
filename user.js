@@ -1,6 +1,7 @@
 export class User {
   static userList = [];
   static message = 0;
+  static vcipStartSignal = false;
 
   constructor() {}
 
@@ -10,6 +11,10 @@ export class User {
 
   static getMessage() {
     return this.message;
+  }
+
+  static getVcipSignal() {
+    return this.vcipStartSignal;
   }
 
   static addUser(user) {
@@ -24,6 +29,10 @@ export class User {
 
   static addMessage(messageReceived) {
     this.message = messageReceived;
+  }
+
+  static vcipStart(signal) {
+    this.vcipStartSignal = signal;
   }
 
   static removeUser(id) {
