@@ -47,6 +47,16 @@ export const sendLivelinessCode = (client, io) => {
   });
 };
 
+export const sendCustomerIp = (client, io) => {
+  console.log("Customer ip func triggered");
+  client.on("send-customer-ip", (payload) => {
+    io.emit(payload);
+    console.log("Payload for customer ip", payload);
+    User.addCustomerIp(payload);
+    io.emit("customer-ip-received", User.getCustomerIp());
+  });
+};
+
 export const removeUserOnline = (client, io) => {
   client.on("exit", () => {
     User.removeUser(client.id);

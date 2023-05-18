@@ -3,6 +3,7 @@ export class User {
   static message = 0;
   static vcipStartSignal = false;
   static livelinessCode = 111111;
+  static customerIp = {};
 
   constructor() {}
 
@@ -20,6 +21,10 @@ export class User {
 
   static getLivelinessCode() {
     return this.livelinessCode;
+  }
+
+  static getCustomerIp() {
+    return this.customerIp;
   }
 
   static addUser(user) {
@@ -42,6 +47,10 @@ export class User {
 
   static vcipStart(signal) {
     this.vcipStartSignal = signal;
+  }
+
+  static addCustomerIp(ip) {
+    this.customerIp = ip;
   }
 
   static removeUser(id) {
