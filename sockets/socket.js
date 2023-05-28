@@ -37,6 +37,16 @@ export const startVcip = (client, io) => {
   });
 };
 
+export const agentSubscription = (client, io) => {
+  console.log("agentSubscription triggered");
+  client.on("agent-online", (payload) => {
+    io.emit(payload);
+    console.log("Payload for agentSubscription", payload);
+    User.setAgentOnline(payload);
+    io.emit("agent-online-signal", User.getIsAgentOnline());
+  });
+};
+
 export const sendLivelinessCode = (client, io) => {
   console.log("Liveliness code sent");
   client.on("send-liveliness-code", (payload) => {
