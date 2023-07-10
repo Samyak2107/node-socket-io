@@ -8,7 +8,15 @@ const PORT = 5000;
 const app = express();
 const httpServer = new http.Server(app);
 const io = new Server(httpServer, {
-  cors: { origin: "https://st.jiovcip.jiolabs.com" },
+  cors: {
+    origin: [
+      "https://st.jiovcip.jiolabs.com:443",
+      "https://st.jiovcip.jiolabs.com:4200",
+      "https://st.jiovcip.jiolabs.com:4201",
+      "https://st.jiovcip.jiolabs.com:4203",
+      "https://st.jiovcip.jiolabs.com",
+    ],
+  },
 });
 
 io.on("connection", (client) => {
