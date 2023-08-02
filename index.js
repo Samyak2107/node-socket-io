@@ -15,6 +15,11 @@ const io = new Server(httpServer, {
       "https://st.jiovcip.jiolabs.com:4201",
       "https://st.jiovcip.jiolabs.com:4203",
       "https://st.jiovcip.jiolabs.com",
+      "https://dev.jiovcip.jiolabs.com",
+      "https://dev.jiovcip.jiolabs.com:443",
+      "https://dev.jiovcip.jiolabs.com:4200",
+      "https://dev.jiovcip.jiolabs.com:4201",
+      "https://dev.jiovcip.jiolabs.com:4203",
     ],
   },
 });
